@@ -1,0 +1,128 @@
+<html>
+<head><title>Assignment 5 Documentation</title></head>
+<body>
+<p>Assignment 5 Documentation</p>
+<p>This service can be used to get, add, update and delete Covid-19 statistics from the database.</p>
+<p>The database contains 2 tables. One is used to record country stats. The other is used to record history stats.</p>
+<p>We consume 2 existing services.</p>
+<p>We define 3 HttpGet methods, 2 HttpPost methods, 2 HttpPut methods, and 2 HttpDelete methods.</p>
+<p>
+<table>
+
+<tr>
+<td>URL</td>
+<td>Method</td>
+<td>Success</td>
+<td>Error</td>
+<td>Sample Call</td>
+<td>Notes</td>
+</tr>
+
+<tr>
+<td>/storedata/</td>
+<td>Get</td>
+<td>200</td>
+<td>400</td>
+<td>/storedata/</td>
+<td>We call this method to store the data from the 2 existing web services in the database.</td>
+</tr>
+
+<tr>
+<td>/getCountry/<br>/getCountry/country/</td>
+<td>Get</td>
+<td>200</td>
+<td>400</td>
+<td>/getCountry/<br>/getCountry/Canada/</td>
+<td>Get the country stats. If country is not specified, it will return all the records.</td>
+</tr>
+
+<tr>
+<td>/getHistory/<br>/getHistory/date/</td>
+<td>Get</td>
+<td>200</td>
+<td>400</td>
+<td>/getHistory/<br>/getHistory/2020-11-23/</td>
+<td>Get the history stats. If date is not specified, it will return all the records.</td>
+</tr>
+
+<tr>
+<td>/addCountry/</td>
+<td>Post</td>
+<td>200</td>
+<td>400</td>
+<td>/addCountry/</td>
+<td>Request body sample:<br>{<br>
+"location":"CountryA",<br>
+"lastReported":"2020-11-30",<br>
+"recovered":"2",<br>
+"deaths":"0",<br>
+"confirmed":"2"<br>
+}</td>
+</tr>
+
+<tr>
+<td>/addHistory/</td>
+<td>Post</td>
+<td>200</td>
+<td>400</td>
+<td>/addHistory/</td>
+<td>Request body sample:<br>{<br>
+  "date":"2020-11-01",<br>
+  "active":"1",<br>
+  "recovered":"1",<br>
+  "deaths":"0",<br>
+  "confirmed":"2"<br>
+}</td>
+</tr>
+
+<tr>
+<td>/updateCountry/<br>/updateCountry/country/</td>
+<td>Put</td>
+<td>200</td>
+<td>400</td>
+<td>/updateCountry/<br>/updateCountry/Canada/</td>
+<td>Request body sample:<br>{<br>
+"lastReported":"2020-11-30",<br>
+"recovered":"2",<br>
+"deaths":"0",<br>
+"confirmed":"2"<br>
+}</td>
+</tr>
+
+<tr>
+<td>/updateHistory/<br>/updateHistory/date/</td>
+<td>Put</td>
+<td>200</td>
+<td>400</td>
+<td>/updateHistory/<br>/updateHistory/2020-11-01/</td>
+<td>Request body sample:<br>
+{<br>
+  "active":"2",<br>
+  "recovered":"1",<br>
+  "deaths":"0",<br>
+  "confirmed":"3"<br>
+}</td>
+</tr>
+
+<tr>
+<td>/deleteCountry/country/</td>
+<td>Delete</td>
+<td>200</td>
+<td>400</td>
+<td>/deleteCountry/Canada/</td>
+<td>Delete the country stats.</td>
+</tr>
+
+<tr>
+<td>/deleteHistory/date/</td>
+<td>Delete</td>
+<td>200</td>
+<td>400</td>
+<td>/deleteHistory/2020-11-01/</td>
+<td>Delete the history stats.</td>
+</tr>
+
+</table>
+</p>
+</body>
+</html>
