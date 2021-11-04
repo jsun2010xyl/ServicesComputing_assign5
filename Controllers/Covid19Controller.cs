@@ -36,6 +36,7 @@ namespace mod9_example.Controllers{
 				    serviceRequest.Method = "GET"; 
 				    serviceRequest.ContentLength = 0; 
 				    serviceRequest.ContentType = "plain/text"; 
+										// Use your own api key here
 				    serviceRequest.Headers.Add("x-rapidapi-key", "69413b8873mshf95f8cb33400306p110301jsn3cef58afe473");
 				    serviceRequest.Headers.Add("x-rapidapi-host", "covid-19-statistics.p.rapidapi.com");
 				    WebResponse serviceResponse = (WebResponse)serviceRequest.GetResponse(); 
